@@ -1,0 +1,141 @@
+@font-face {
+    font-family: "Horizon";
+    src: url('assets/horizon.otf');
+  }
+
+html {
+    background-color: black;
+    height: 99%;
+    padding: none;
+}
+
+body {
+    overflow: hidden;
+    margin: 0;
+}
+
+.title-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.217);
+}
+
+.title-container > * {
+    margin: 0;
+    padding: 0;
+    /* display: block; */
+}
+
+.title-container > h1 {
+    color: white;
+    font-family: "Horizon", sans-serif;
+    font-size: min(5rem, 12vw);
+    text-align: center;
+}
+
+.title-container > p {
+    color: white;
+    font-family: monospace;
+    font-size: min(1rem, 2vw);
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.title-container > a {
+    margin-top: 10px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    border-top: 0.1px white solid;
+    background: #000000cf;
+}
+
+.footer > a {
+    text-decoration: none;
+}
+
+.footer > a > p {
+    color: white;
+    font-family: monospace;
+    font-size: min(0.75rem, 1.75vw);
+    white-space: nowrap;
+    margin: 5px;
+    animation: move-text 40s linear infinite;
+}
+
+.footer > a > p > span {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.background-emojis {
+    white-space: nowrap;
+    margin: 0;
+    font-size: min(5rem, 10vw);
+}
+
+.background-emojis:nth-child(even) {
+    animation: move-emojis 15s linear infinite;
+}
+
+.background-emojis:nth-child(odd) {
+    animation: move-emojis-reverse 15s linear infinite;
+}
+
+@keyframes move-emojis {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100.5%);
+    }
+}
+
+@keyframes move-emojis-reverse {
+    0% {
+        transform: translateX(-100.5%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes move-text {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@media (min-width: 768px) {
+    .background-emojis:nth-child(even) {
+        animation: move-emojis 25s linear infinite;
+    }
+    
+    .background-emojis:nth-child(odd) {
+        animation: move-emojis-reverse 25s linear infinite;
+    }
+}
